@@ -1,0 +1,37 @@
+[
+  {
+    "id": "TC01",
+    "type": "direct_query",
+    "question": "Bạn có thể giới thiệu quy định cơ bản về việc sử dụng phòng họp và thiết bị trong văn phòng không?",
+    "expected_behavior": "Chatbot trả lời trực tiếp từ System Prompt, không cần gọi bất kỳ Tool nào.",
+    "complexity": "Low"
+  },
+  {
+    "id": "TC02",
+    "type": "single_tool_query",
+    "question": "Hãy kiểm tra các phòng họp còn trống vào lúc 14:00 ngày 15/09/2026.",
+    "expected_behavior": "Agent nhận diện nhu cầu tra cứu phòng họp và tự động phát sinh Tool Call 'room_availability' với đúng ngày và thời gian yêu cầu.",
+    "complexity": "Medium"
+  },
+  {
+    "id": "TC03",
+    "type": "appointment_booking",
+    "question": "Hãy đặt phòng họp cho tôi vào lúc 14:00 ngày 15/09/2026, thời lượng 60 phút, cần máy chiếu và sức chứa ít nhất 8 người.",
+    "expected_behavior": "Agent trước tiên kiểm tra các phòng còn trống phù hợp với thời gian, sức chứa và thiết bị yêu cầu bằng Tool 'room_availability'. Sau đó, dựa trên kết quả thực tế, Agent gọi Tool 'book_room' để đặt phòng phù hợp và trả về thông tin booking.",
+    "complexity": "Medium"
+  },
+  {
+    "id": "TC04",
+    "type": "multi_step_reasoning",
+    "question": "Tôi cần tổ chức một cuộc họp vào lúc 09:00 ngày 16/09/2026 cho 10 người. Hãy tìm một phòng còn trống có máy chiếu và bảng trắng, sau đó đặt phòng phù hợp cho tôi.",
+    "expected_behavior": "Agent thực hiện chuỗi suy luận ReAct đa bước: trước tiên gọi Tool 'room_availability' để kiểm tra phòng trống, sau đó phân tích kết quả dựa trên sức chứa và thiết bị yêu cầu, cuối cùng gọi Tool 'book_room' để đặt phòng phù hợp. Agent không được tự bịa phòng hoặc thiết bị nếu Tool không trả về.",
+    "complexity": "High"
+  },
+  {
+    "id": "TC05",
+    "type": "edge_case_handling",
+    "question": "Hãy đặt cho tôi một phòng họp 20 người vào lúc 18:00 ngày 16/09/2026, cần máy chiếu và bảng trắng. Nếu không có phòng phù hợp thì hãy cho tôi biết.",
+    "expected_behavior": "Agent gọi Tool 'room_availability' để kiểm tra tình trạng phòng, sức chứa và thiết bị. Nếu Tool trả về không có phòng phù hợp, Agent phải thông báo rõ rằng không thể đặt phòng, không tự bịa dữ liệu và không gọi 'book_room' khi chưa có phòng phù hợp.",
+    "complexity": "Medium"
+  }
+]

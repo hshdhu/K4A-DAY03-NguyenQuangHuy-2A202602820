@@ -1,29 +1,387 @@
 [
   {
     "step": 1,
-    "query": "Chào bạn, bạn có thể giới thiệu quy chế học vụ cơ bản của Đại học VinUni không?",
+    "query": "Bạn có thể giới thiệu quy định cơ bản về việc sử dụng phòng họp và thiết bị trong văn phòng không?",
     "action_type": "FINAL_ANSWER",
-    "thought": "Câu hỏi chung về quy chế học vụ, trả lời trực tiếp không cần gọi Tool.",
-    "output": "[Mock Agent Response]: Xin chào! Quy chế học vụ VinUni yêu cầu sinh viên tích lũy tối thiểu 120 tín chỉ và duy trì GPA trên 2.0 để tốt nghiệp.",
-    "latency_ms": 2845.93
+    "thought": "Gemini phản hồi trực tiếp bằng văn bản (không cần gọi công cụ).",
+    "output": "Dưới đây là một số quy định cơ bản về việc sử dụng phòng họp và thiết bị trong văn phòng:\n\n1. **Đặt phòng họp trước (Booking):**\n   - Đặt phòng họp thông qua hệ thống quản lý/trợ lý trước khi sử dụng.\n   - Chọn phòng có sức chứa và thiết bị phù hợp với nhu cầu thực tế.\n   - Nếu có thay đổi lịch hoặc hủy họp, hãy chủ động hủy booking trên hệ thống để người khác có thể sử dụng.\n\n2. **Tuân thủ thời gian (Đúng giờ):**\n   - Bắt đầu và kết thúc buổi họp đúng thời gian đã đăng ký.\n   - Dành 5 phút cuối buổi họp để thu dọn và bàn giao phòng cho lượt sử dụng tiếp theo.\n\n3. **Sử dụng và bảo quản thiết bị:**\n   - Sử dụng các thiết bị (máy chiếu, màn hình TV, hệ thống âm thanh, micro, bảng trắng...) đúng hướng dẫn.\n   - Không tự ý tháo lắp, di chuyển hoặc thay đổi cấu hình kỹ thuật của thiết bị.\n   - Báo ngay cho bộ phận IT/Facilities nếu phát hiện thiết bị gặp sự cố hoặc hỏng hóc.\n\n4. **Giữ gìn vệ sinh và ngăn nắp:**\n   - Xóa bảng trắng sau khi họp xong.\n   - Xếp lại ghế gọn gàng, dọn dẹp ly tách, rác cá nhân trước khi rời phòng.\n   - Tắt các thiết bị điện (máy chiếu, đèn, điều hòa...) khi kết thúc buổi họp.\n\n5. **Quy định về ăn uống và trật tự:**\n   - Hạn chế mang thức ăn có mùi hoặc đồ uống dễ gây vấy bẩn vào phòng họp.\n   - Giữ mức độ âm lượng vừa phải, tránh làm ảnh hưởng đến không gian làm việc xung quanh.",
+    "latency_ms": 7444.86
   },
   {
     "step": 1,
-    "query": "Hãy tra cứu thông tin học vụ của sinh viên SV2026001.",
+    "query": "Hãy kiểm tra các phòng họp còn trống vào lúc 14:00 ngày 15/09/2026.",
     "action_type": "TOOL_EXECUTION",
-    "tool_name": "academic_query",
+    "thought": "Gemini quyết định gọi công cụ 'room_availability' với tham số: {\"capacity\": 1, \"equipment\": [], \"time\": \"14:00\", \"duration_minutes\": 60, \"date\": \"15/09/2026\"}",
+    "tool_name": "room_availability",
     "arguments": {
-      "student_id": "SV2026001"
+      "capacity": 1,
+      "equipment": [],
+      "time": "14:00",
+      "duration_minutes": 60,
+      "date": "15/09/2026"
     },
-    "observation": {},
-    "latency_ms": 799.12
+    "observation": {
+      "status": "SUCCESS",
+      "date": "15/09/2026",
+      "time": "14:00",
+      "duration_minutes": 60,
+      "requested_capacity": 1,
+      "requested_equipment": [],
+      "available_rooms": [
+        {
+          "room_name": "Meeting Room A",
+          "capacity": 6,
+          "equipment": [
+            "projector",
+            "whiteboard"
+          ],
+          "date": "15/09/2026",
+          "time": "14:00",
+          "duration_minutes": 60
+        },
+        {
+          "room_name": "Meeting Room B",
+          "capacity": 10,
+          "equipment": [
+            "projector",
+            "whiteboard",
+            "video_conference"
+          ],
+          "date": "15/09/2026",
+          "time": "14:00",
+          "duration_minutes": 60
+        },
+        {
+          "room_name": "Meeting Room D",
+          "capacity": 12,
+          "equipment": [
+            "whiteboard"
+          ],
+          "date": "15/09/2026",
+          "time": "14:00",
+          "duration_minutes": 60
+        }
+      ]
+    },
+    "latency_ms": {
+      "llm": 5945.29,
+      "tool": 0.0
+    }
   },
   {
     "step": 2,
-    "query": "Hãy tra cứu thông tin học vụ của sinh viên SV2026001.",
+    "query": "Hãy kiểm tra các phòng họp còn trống vào lúc 14:00 ngày 15/09/2026.",
     "action_type": "FINAL_ANSWER",
-    "thought": "Tổng hợp kết quả từ MCP Server thành công.",
-    "output": "Chưa thể trả lời chi tiết do chưa nhận được dữ liệu từ MCP Server (hãy hoàn thành TODO 2.1).",
-    "latency_ms": 10.0
+    "thought": "Gemini phản hồi trực tiếp bằng văn bản (không cần gọi công cụ).",
+    "output": "Các phòng họp còn trống vào lúc **14:00 ngày 15/09/2026** (thời lượng 60 phút) bao gồm:\n\n1. **Meeting Room A**\n   - **Sức chứa:** 6 người\n   - **Thiết bị:** Máy chiếu (projector), Bảng trắng (whiteboard)\n\n2. **Meeting Room B**\n   - **Sức chứa:** 10 người\n   - **Thiết bị:** Máy chiếu (projector), Bảng trắng (whiteboard), Hệ thống họp trực tuyến (video_conference)\n\n3. **Meeting Room D**\n   - **Sức chứa:** 12 người\n   - **Thiết bị:** Bảng trắng (whiteboard)\n\nNếu bạn muốn đặt phòng họp nào trong danh sách trên, vui lòng cho tôi biết tên phòng, số lượng người tham dự cụ thể hoặc các thiết bị yêu cầu!",
+    "latency_ms": 4043.37
+  },
+  {
+    "step": 1,
+    "query": "Hãy đặt phòng họp cho tôi vào lúc 14:00 ngày 15/09/2026, thời lượng 60 phút, cần máy chiếu và sức chứa ít nhất 8 người.",
+    "action_type": "TOOL_EXECUTION",
+    "thought": "Gemini quyết định gọi công cụ 'room_availability' với tham số: {\"time\": \"14:00\", \"equipment\": [\"projector\"], \"duration_minutes\": 60, \"capacity\": 8, \"date\": \"15/09/2026\"}",
+    "tool_name": "room_availability",
+    "arguments": {
+      "time": "14:00",
+      "equipment": [
+        "projector"
+      ],
+      "duration_minutes": 60,
+      "capacity": 8,
+      "date": "15/09/2026"
+    },
+    "observation": {
+      "status": "SUCCESS",
+      "date": "15/09/2026",
+      "time": "14:00",
+      "duration_minutes": 60,
+      "requested_capacity": 8,
+      "requested_equipment": [
+        "projector"
+      ],
+      "available_rooms": [
+        {
+          "room_name": "Meeting Room B",
+          "capacity": 10,
+          "equipment": [
+            "projector",
+            "whiteboard",
+            "video_conference"
+          ],
+          "date": "15/09/2026",
+          "time": "14:00",
+          "duration_minutes": 60
+        }
+      ]
+    },
+    "latency_ms": {
+      "llm": 2714.61,
+      "tool": 0.0
+    }
+  },
+  {
+    "step": 2,
+    "query": "Hãy đặt phòng họp cho tôi vào lúc 14:00 ngày 15/09/2026, thời lượng 60 phút, cần máy chiếu và sức chứa ít nhất 8 người.",
+    "action_type": "TOOL_EXECUTION",
+    "thought": "Gemini quyết định gọi công cụ 'book_room' với tham số: {\"equipment\": [\"projector\"], \"duration_minutes\": 60, \"capacity\": 8, \"room_name\": \"Meeting Room B\", \"date\": \"15/09/2026\", \"time\": \"14:00\"}",
+    "tool_name": "book_room",
+    "arguments": {
+      "equipment": [
+        "projector"
+      ],
+      "duration_minutes": 60,
+      "capacity": 8,
+      "room_name": "Meeting Room B",
+      "date": "15/09/2026",
+      "time": "14:00"
+    },
+    "observation": {
+      "status": "SUCCESS",
+      "booking_id": "BK-MEETING-ROOM-B-15092026-1400",
+      "room_name": "Meeting Room B",
+      "date": "15/09/2026",
+      "time": "14:00",
+      "duration_minutes": 60,
+      "capacity": 8,
+      "equipment": [
+        "projector"
+      ],
+      "message": "Đặt phòng thành công: Meeting Room B vào lúc 14:00 ngày 15/09/2026, thời lượng 60 phút."
+    },
+    "latency_ms": {
+      "llm": 4157.19,
+      "tool": 0.0
+    }
+  },
+  {
+    "step": 3,
+    "query": "Hãy đặt phòng họp cho tôi vào lúc 14:00 ngày 15/09/2026, thời lượng 60 phút, cần máy chiếu và sức chứa ít nhất 8 người.",
+    "action_type": "FINAL_ANSWER",
+    "thought": "Gemini phản hồi trực tiếp bằng văn bản (không cần gọi công cụ).",
+    "output": "Phòng họp của bạn đã được đặt thành công! Dưới đây là thông tin chi tiết về cuộc họp:\n\n- **Tên phòng:** Meeting Room B\n- **Mã đặt phòng (Booking ID):** BK-MEETING-ROOM-B-15092026-1400\n- **Ngày:** 15/09/2026\n- **Thời gian:** 14:00\n- **Thời lượng:** 60 phút\n- **Sức chứa yêu cầu:** 8 người (Sức chứa tối đa của phòng: 10 người)\n- **Thiết bị kèm theo:** Máy chiếu (projector)",
+    "latency_ms": 4393.22
+  },
+  {
+    "step": 1,
+    "query": "Tôi cần tổ chức một cuộc họp vào lúc 09:00 ngày 16/09/2026 cho 10 người. Hãy tìm một phòng còn trống có máy chiếu và bảng trắng, sau đó đặt phòng phù hợp cho tôi.",
+    "action_type": "TOOL_EXECUTION",
+    "thought": "Gemini quyết định gọi công cụ 'room_availability' với tham số: {\"duration_minutes\": 60, \"time\": \"09:00\", \"equipment\": [\"projector\", \"whiteboard\"], \"date\": \"16/09/2026\", \"capacity\": 10}",
+    "tool_name": "room_availability",
+    "arguments": {
+      "duration_minutes": 60,
+      "time": "09:00",
+      "equipment": [
+        "projector",
+        "whiteboard"
+      ],
+      "date": "16/09/2026",
+      "capacity": 10
+    },
+    "observation": {
+      "status": "SUCCESS",
+      "date": "16/09/2026",
+      "time": "09:00",
+      "duration_minutes": 60,
+      "requested_capacity": 10,
+      "requested_equipment": [
+        "projector",
+        "whiteboard"
+      ],
+      "available_rooms": [
+        {
+          "room_name": "Meeting Room B",
+          "capacity": 10,
+          "equipment": [
+            "projector",
+            "whiteboard",
+            "video_conference"
+          ],
+          "date": "16/09/2026",
+          "time": "09:00",
+          "duration_minutes": 60
+        }
+      ]
+    },
+    "latency_ms": {
+      "llm": 3857.84,
+      "tool": 0.0
+    }
+  },
+  {
+    "step": 2,
+    "query": "Tôi cần tổ chức một cuộc họp vào lúc 09:00 ngày 16/09/2026 cho 10 người. Hãy tìm một phòng còn trống có máy chiếu và bảng trắng, sau đó đặt phòng phù hợp cho tôi.",
+    "action_type": "TOOL_EXECUTION",
+    "thought": "Gemini quyết định gọi công cụ 'book_room' với tham số: {\"room_name\": \"Meeting Room B\", \"equipment\": [\"projector\", \"whiteboard\"], \"duration_minutes\": 60, \"time\": \"09:00\", \"capacity\": 10, \"date\": \"16/09/2026\"}",
+    "tool_name": "book_room",
+    "arguments": {
+      "room_name": "Meeting Room B",
+      "equipment": [
+        "projector",
+        "whiteboard"
+      ],
+      "duration_minutes": 60,
+      "time": "09:00",
+      "capacity": 10,
+      "date": "16/09/2026"
+    },
+    "observation": {
+      "status": "SUCCESS",
+      "booking_id": "BK-MEETING-ROOM-B-16092026-0900",
+      "room_name": "Meeting Room B",
+      "date": "16/09/2026",
+      "time": "09:00",
+      "duration_minutes": 60,
+      "capacity": 10,
+      "equipment": [
+        "projector",
+        "whiteboard"
+      ],
+      "message": "Đặt phòng thành công: Meeting Room B vào lúc 09:00 ngày 16/09/2026, thời lượng 60 phút."
+    },
+    "latency_ms": {
+      "llm": 3230.77,
+      "tool": 0.0
+    }
+  },
+  {
+    "step": 3,
+    "query": "Tôi cần tổ chức một cuộc họp vào lúc 09:00 ngày 16/09/2026 cho 10 người. Hãy tìm một phòng còn trống có máy chiếu và bảng trắng, sau đó đặt phòng phù hợp cho tôi.",
+    "action_type": "FINAL_ANSWER",
+    "thought": "Gemini phản hồi trực tiếp bằng văn bản (không cần gọi công cụ).",
+    "output": "Đặt phòng thành công! Dưới đây là thông tin chi tiết về buổi họp của bạn:\n\n- **Mã đặt phòng (Booking ID):** `BK-MEETING-ROOM-B-16092026-0900`\n- **Tên phòng:** Meeting Room B\n- **Ngày:** 16/09/2026\n- **Thời gian bắt đầu:** 09:00 (Thời lượng: 60 phút)\n- **Sức chứa:** 10 người\n- **Thiết bị kèm theo:** Máy chiếu (`projector`), Bảng trắng (`whiteboard`)",
+    "latency_ms": 4957.88
+  },
+  {
+    "step": 1,
+    "query": "Hãy đặt cho tôi một phòng họp 20 người vào lúc 18:00 ngày 16/09/2026, cần máy chiếu và bảng trắng. Nếu không có phòng phù hợp thì hãy cho tôi biết.",
+    "action_type": "TOOL_EXECUTION",
+    "thought": "Gemini quyết định gọi công cụ 'room_availability' với tham số: {\"time\": \"18:00\", \"date\": \"16/09/2026\", \"capacity\": 20, \"duration_minutes\": 60, \"equipment\": [\"projector\", \"whiteboard\"]}",
+    "tool_name": "room_availability",
+    "arguments": {
+      "time": "18:00",
+      "date": "16/09/2026",
+      "capacity": 20,
+      "duration_minutes": 60,
+      "equipment": [
+        "projector",
+        "whiteboard"
+      ]
+    },
+    "observation": {
+      "status": "NOT_FOUND",
+      "message": "Không tìm thấy phòng họp phù hợp vào lúc 18:00 ngày 16/09/2026 với sức chứa ít nhất 20 người và thiết bị yêu cầu: ['projector', 'whiteboard']."
+    },
+    "latency_ms": {
+      "llm": 4225.85,
+      "tool": 0.0
+    }
+  },
+  {
+    "step": 2,
+    "query": "Hãy đặt cho tôi một phòng họp 20 người vào lúc 18:00 ngày 16/09/2026, cần máy chiếu và bảng trắng. Nếu không có phòng phù hợp thì hãy cho tôi biết.",
+    "action_type": "FINAL_ANSWER",
+    "thought": "Gemini phản hồi trực tiếp bằng văn bản (không cần gọi công cụ).",
+    "output": "Không tìm thấy phòng họp nào phù hợp vào lúc **18:00 ngày 16/09/2026** đáp ứng đủ sức chứa **20 người** và trang bị đầy đủ **máy chiếu (projector)** cùng **bảng trắng (whiteboard)**. \n\nDo đó, hệ thống không thể thực hiện đặt phòng theo yêu cầu. Bạn có thể cân nhắc thay đổi khung giờ, ngày họp hoặc điều chỉnh các yêu cầu thiết bị/sức chứa để kiểm tra lại.",
+    "latency_ms": 3973.54
+  },
+  {
+    "step": 1,
+    "query": "Tôi cần đặt phòng họp cho 6 người vào ngày 17/09/2026 lúc 10:00.",
+    "action_type": "TOOL_EXECUTION",
+    "thought": "Gemini quyết định gọi công cụ 'room_availability' với tham số: {\"duration_minutes\": 60, \"equipment\": [], \"capacity\": 6, \"date\": \"17/09/2026\", \"time\": \"10:00\"}",
+    "tool_name": "room_availability",
+    "arguments": {
+      "duration_minutes": 60,
+      "equipment": [],
+      "capacity": 6,
+      "date": "17/09/2026",
+      "time": "10:00"
+    },
+    "observation": {
+      "status": "SUCCESS",
+      "date": "17/09/2026",
+      "time": "10:00",
+      "duration_minutes": 60,
+      "requested_capacity": 6,
+      "requested_equipment": [],
+      "available_rooms": [
+        {
+          "room_name": "Meeting Room A",
+          "capacity": 6,
+          "equipment": [
+            "projector",
+            "whiteboard"
+          ],
+          "date": "17/09/2026",
+          "time": "10:00",
+          "duration_minutes": 60
+        },
+        {
+          "room_name": "Meeting Room B",
+          "capacity": 10,
+          "equipment": [
+            "projector",
+            "whiteboard",
+            "video_conference"
+          ],
+          "date": "17/09/2026",
+          "time": "10:00",
+          "duration_minutes": 60
+        },
+        {
+          "room_name": "Meeting Room D",
+          "capacity": 12,
+          "equipment": [
+            "whiteboard"
+          ],
+          "date": "17/09/2026",
+          "time": "10:00",
+          "duration_minutes": 60
+        }
+      ]
+    },
+    "latency_ms": {
+      "llm": 5801.49,
+      "tool": 0.0
+    }
+  },
+  {
+    "step": 2,
+    "query": "Tôi cần đặt phòng họp cho 6 người vào ngày 17/09/2026 lúc 10:00.",
+    "action_type": "TOOL_EXECUTION",
+    "thought": "Gemini quyết định gọi công cụ 'book_room' với tham số: {\"time\": \"10:00\", \"capacity\": 6, \"room_name\": \"Meeting Room A\", \"date\": \"17/09/2026\", \"duration_minutes\": 60, \"equipment\": []}",
+    "tool_name": "book_room",
+    "arguments": {
+      "time": "10:00",
+      "capacity": 6,
+      "room_name": "Meeting Room A",
+      "date": "17/09/2026",
+      "duration_minutes": 60,
+      "equipment": []
+    },
+    "observation": {
+      "status": "SUCCESS",
+      "booking_id": "BK-MEETING-ROOM-A-17092026-1000",
+      "room_name": "Meeting Room A",
+      "date": "17/09/2026",
+      "time": "10:00",
+      "duration_minutes": 60,
+      "capacity": 6,
+      "equipment": [],
+      "message": "Đặt phòng thành công: Meeting Room A vào lúc 10:00 ngày 17/09/2026, thời lượng 60 phút."
+    },
+    "latency_ms": {
+      "llm": 3587.47,
+      "tool": 0.0
+    }
+  },
+  {
+    "step": 3,
+    "query": "Tôi cần đặt phòng họp cho 6 người vào ngày 17/09/2026 lúc 10:00.",
+    "action_type": "FINAL_ANSWER",
+    "thought": "Gemini phản hồi trực tiếp bằng văn bản (không cần gọi công cụ).",
+    "output": "Phòng họp của bạn đã được đặt thành công. Dưới đây là thông tin chi tiết về cuộc họp:\n\n- **Mã đặt phòng:** BK-MEETING-ROOM-A-17092026-1000\n- **Phòng họp:** Meeting Room A\n- **Ngày:** 17/09/2026\n- **Thời gian:** 10:00\n- **Thời lượng:** 60 phút\n- **Số lượng người tham dự:** 6 người\n- **Thiết bị có sẵn tại phòng:** Máy chiếu (Projector), Bảng trắng (Whiteboard)",
+    "latency_ms": 4196.21
   }
 ]
